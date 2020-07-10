@@ -4,6 +4,7 @@
 ### 기본형태
 
 * map<key,value> : key와 value를 pair 형태로 선언합니다.
+* map<key,value>::iterator iter : 
 
 ### iterator(반복자)
 
