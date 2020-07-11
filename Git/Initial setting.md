@@ -30,14 +30,3 @@ git config --global --list
 ```
 git clone https://github.com/snoopspy/sum_test.git
 ```
-  
-  
-  
-## 유용 
-
-* git push를 할 때마다 id, password을 물어 보는데, cache를 두어 여러번 입력 할 필요 없어짐
-```
-git config --global credential.helper "cache --timeout=360000"
-```
-
-출처 : https://gitlab.com/gilgil/sns/-/wikis/git-exam/git-exam [gilgil]
