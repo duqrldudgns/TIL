@@ -41,3 +41,26 @@
 
 * empty() : 맵이 비어있으면 true 아니면 false를 반환
 * size() : 맵 원소들의 수를 반환
+
+
+### 참고
+* key는 사전순으로 정렬되어서 저장됨
+```
+# 입력
+  m["dd"] = 1;
+  m["aa"] = 3;
+  m["cc"] = 4;
+  m["bb"] = 2;
+
+  for(auto it : m){
+    cout << it.first << endl;
+  }
+```
+
+```
+# 출력
+aa
+bb
+cc
+dd
+```
