@@ -13,6 +13,8 @@
 
 ### C++
 * [map](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/map.md)
+* [string](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/string.md)
+* [sort](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/functions.md)
 
 ### Git
 * [Initial setting](https://github.com/duqrldudgns/TIL/blob/master/Git/Initial%20setting.md)
@@ -25,4 +27,6 @@
 * 
 
 ### Network
+* [OSI 7Layer table](https://github.com/duqrldudgns/TIL/blob/master/Network/OSI-and-tcp.png)
+* [Endian](https://github.com/duqrldudgns/TIL/blob/master/Network/Endian.md)
 * Virtual Machine Network
