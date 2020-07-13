@@ -12,9 +12,9 @@
 * [Regular Expression](https://github.com/duqrldudgns/TIL/blob/master/Etc/Regular%20Expression.md)
 
 ### C++
+* [functions](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/functions.md)
 * [map](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/map.md)
 * [string](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/string.md)
-* [sort](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/functions.md)
 
 ### Git
 * [Initial setting](https://github.com/duqrldudgns/TIL/blob/master/Git/Initial%20setting.md)
