@@ -1,5 +1,8 @@
 # String
 
+## getline(cin, string);
+* 문자열의 띄어쓰기나 길이에 상관없이 모든 문자열을 정확히 입력받을 수 있음
+
 ## str[index] 
 * 배열처럼접근가능
 
@@ -14,6 +17,12 @@
 
 ## str.capacity()
 * 객체에 할당된 메모리 크기(bytes)를 반환
+
+## str.append(...)
+* str.append(추가할문자열)
+* str.append(추가할문자열, 시작위치, 개수)
+* str.append(개수, 추가할문자);
+* 문자열의 끝에 다른 문자열을 추가하는 메소드
 
 ## str.resize(...)
 * str.resize(n)
