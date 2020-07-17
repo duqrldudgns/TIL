@@ -27,4 +27,23 @@ bool compare(Student a,Student b){
     }
 }
 ```
-출처 : https://blockdmask.tistory.com/178
+
+## \<ctime\>
+
+### clock()
+```
+start = clock();
+BinarySearch(URL); // 만든 함수
+end = clock();
+result = (double)(end - start);
+printf("%f ms", result);
+```
+
+### srand() 
+ * 랜덤함수
+ ```
+srand((unsigned int)time(NULL));
+     while(1){
+     printf("난수 : %d\t나머지 : %d\n", num, (int)num % 10);
+}
+```
