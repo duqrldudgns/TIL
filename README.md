@@ -30,3 +30,4 @@
 * [OSI 7Layer table](https://github.com/duqrldudgns/TIL/blob/master/Network/OSI-and-tcp.png)
 * [Endian](https://github.com/duqrldudgns/TIL/blob/master/Network/Endian.md)
 * [VM_Network](/Network/VM_Network.md)
+* [AWS 개념잡기(너무 정리 잘 되어 있어서 퍼옴)](https://medium.com/harrythegreat/aws-%EA%B0%80%EC%9E%A5%EC%89%BD%EA%B2%8C-vpc-%EA%B0%9C%EB%85%90%EC%9E%A1%EA%B8%B0-71eef95a7098)
