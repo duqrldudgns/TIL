@@ -33,12 +33,3 @@
 
 ### AWS
 * [AWS 개념잡기(너무 정리 잘 되어 있어서 퍼옴)](https://medium.com/harrythegreat/aws-%EA%B0%80%EC%9E%A5%EC%89%BD%EA%B2%8C-vpc-%EA%B0%9C%EB%85%90%EC%9E%A1%EA%B8%B0-71eef95a7098)
-
-### 
-* 
-<<<<<<< HEAD
-
-### 
-* 
-=======
->>>>>>> ed110d2eea8ed8289e6680309f545ac0b7282236
