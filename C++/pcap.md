@@ -58,15 +58,21 @@ int main(int argc, char* argv[]) {
 ```
 
 ## 참조
+
+### <libnet-headers.h>
 * 각각의 Header 정보들이 structure로 잘 선언된 헤더파일
 > (http://packetfactory.openwall.net/projects/libnet) 
 > > Latest Stable Version 다운로드(libnet.tar.gz) 
-> > > include/libnet/libnet-headers.h 파일을 헤더파일이 인클루드되는 곳(/usr/include)로 이동
+> > > include/libnet/libnet-headers.h 참조
 
-### <libnet-headers.h>
 * 자주 쓰는 구조체
 ```
 struct libnet_ethernet_hdr  
 struct libnet_ipv4_hdr  
 struct libnet_tcp_hdr   
 ```
+
+### <netinet/~.h>
+* <netinet/ether.h>
+* <netinet/ip.h>
+* <netinet/tcp.h>
