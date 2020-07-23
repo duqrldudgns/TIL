@@ -10,12 +10,15 @@ packet 수신 | pcap_next_ex
 packet 송신 | pcap_sendpacket
 
 ## Linux
+* pcap을 사용하기 위해 라이브러리 설치 필요
 ```
 $ sudo apt install libpcap-dev
 ```
 
 ## code
+* pcap.h 파일을 include하고 링크 과정에서 '-lpcap'옵션 추가 필요
 ```
+// 수신 
 #include <pcap.h>
 #include <stdio.h>
 
@@ -52,4 +55,18 @@ int main(int argc, char* argv[]) {
 
     pcap_close(handle);
 }
+```
+
+## 참조
+* 각각의 Header 정보들이 structure로 잘 선언된 헤더파일
+> (http://packetfactory.openwall.net/projects/libnet) 
+> > Latest Stable Version 다운로드(libnet.tar.gz) 
+> > > include/libnet/libnet-headers.h 파일을 헤더파일이 인클루드되는 곳(/usr/include)로 이동
+
+### <libnet-headers.h>
+* 자주 쓰는 구조체
+```
+struct libnet_ethernet_hdr  
+struct libnet_ipv4_hdr  
+struct libnet_tcp_hdr   
 ```
