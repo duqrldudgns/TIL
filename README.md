@@ -42,5 +42,5 @@
 ## Firmware
 * [Firmware extract](/Firmware/Firmware_extract.md)
 
-## Hard_Writting(정리해야 할 것)
+## Hard_Writting
 * [VM_Network](/Hard_Writting/VM_Network)
