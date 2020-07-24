@@ -69,6 +69,10 @@ main.o: main.cpp sum.h              #실행순서 2순위
 clean:
 	rm -f sum_test *.o
   ```
+
+## 참고
+* qt 기능 중 .pro 파일이 있는 디렉토리에서 qmake 명령어를 치게되면 자동으로 Makefile 생성
+
   
 ## 실행
 
