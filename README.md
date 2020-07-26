@@ -35,9 +35,10 @@
 * [Packet header](/Network/Packet_header.md)
 * [dummy_interface&packet_sniffing](/Network/dummy_interface&packet_sniffing.md)
 
-## AWS
+## Cloud
 * [AWS Correct concept (너무 정리 잘 되어 있어서 퍼옴)](https://medium.com/harrythegreat/aws-%EA%B0%80%EC%9E%A5%EC%89%BD%EA%B2%8C-vpc-%EA%B0%9C%EB%85%90%EC%9E%A1%EA%B8%B0-71eef95a7098)
-* [AWS basic setting](/AWS/AWS_Setting.md)
+* [AWS basic setting](/Cloud/AWS_Setting.md)
+* [GCP basic setting](/Cloud/GCP_basic.md)
 
 ## Firmware
 * [Firmware extract](/Firmware/Firmware_extract.md)
