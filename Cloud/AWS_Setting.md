@@ -99,4 +99,4 @@
 
 # 위 내용의 대략적 그림
 
-<img src="/AWS/img/learn.png" width="450px" height="300px" title="px(픽셀) 크기 설정" ></img><br/>
+<img src="/Cloud/img/learn.png" width="450px" height="300px" title="px(픽셀) 크기 설정" ></img><br/>
