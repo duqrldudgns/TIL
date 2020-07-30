@@ -70,6 +70,22 @@ clean:
 	rm -f sum_test *.o
   ```
 
+## 초간단 Makefile
+
+```
+#Makefile
+LDLIBS=(라이브러리 설정 , ex. -lpcap )
+
+all: test
+
+test: main.o a.o b.o c.o d.o
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+clean:
+	rm -f test *.o
+
+```
+
 ## 참고
 * qt 기능 중 .pro 파일이 있는 디렉토리에서 qmake 명령어를 치게되면 자동으로 Makefile 생성
 
