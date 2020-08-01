@@ -28,6 +28,12 @@ bool compare(Student a,Student b){
 }
 ```
 
+### swap(...)
+- swap(a, b)
+    - 두 수 교체
+- swap(array, a, b)
+    - 배열 내의 두 인덱스 교체
+
 ## \<ctime\>
 
 ### clock()
