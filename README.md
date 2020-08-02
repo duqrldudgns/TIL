@@ -45,6 +45,7 @@
 
 ## Firmware
 * [Firmware extract](/Firmware/Firmware_extract.md)
+* [hooking-(펌)](https://blog.dork94.com/145)
 
 ## Hard_Writting
 * [VM_Network](/Hard_Writting/VM_Network)
