@@ -21,6 +21,7 @@
 ## Git
 * [Initial setting](https://github.com/duqrldudgns/TIL/blob/master/Git/Initial%20setting.md)
 * [Git Tip - 깃꿀팁 (뀘팁)](https://github.com/duqrldudgns/TIL/blob/master/Git/Git_Tip.md)
+* [좋은 커밋 메세지 작성하기](https://velog.io/@hyeong412/TIL-%EC%A2%8B%EC%9D%80-%EC%BB%A4%EB%B0%8B-%EB%A9%94%EC%84%B8%EC%A7%80-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0-)
 
 ## Linux
 * [Makefile](https://github.com/duqrldudgns/TIL/blob/master/Linux/Makefile.md)
