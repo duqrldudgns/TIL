@@ -26,9 +26,6 @@
 ## Linux
 * [Makefile](https://github.com/duqrldudgns/TIL/blob/master/Linux/Makefile.md)
 
-## Operating System
-* 
-
 ## Network
 * [OSI 7Layer table](https://github.com/duqrldudgns/TIL/blob/master/Network/OSI-and-tcp.png)
 * [Endian](https://github.com/duqrldudgns/TIL/blob/master/Network/Endian.md)
