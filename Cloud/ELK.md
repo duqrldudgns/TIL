@@ -403,12 +403,13 @@ POST kibana_sample_data_flights/_search
 
 ```
 curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/shakespeare.json  -  샘플데이터 가져오기
-wc shakespeare.json
+wc shakespeare.json  - 데이터 내용 확인하기
+head shakespeare.json
+vi shakespeare.json
 curl -uelastic:<pwd> -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
 
 
 dev tools 
-
 PUT /shakespeare
 {
   "mappings": {
