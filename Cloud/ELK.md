@@ -423,12 +423,170 @@ PUT /shakespeare
 }
 ```
 
-## kibana
+## kibana (management)
 ```
 elk 에서 검색 가능한 구조로 만들기
-management -> index patterns -> create index
+ -> index patterns -> create index
 shakespeare -> next -> next
 
 왼쪽 메뉴discover
 change -> shakespeare -> search ( text_entry :"ACT I" )
 ```
+
+## kibana (visualizations)
+```
+Vertical Bar 생성
+Buckets add
+X-axis
+Terms
+playname
+size10
+play
+save(BoB-shake-bar-playname)
+
+tag cloud
+Buckets add
+Aggregation
+Terms
+text_entry.keyword
+size 50
+save  BoB-shakes-tagcloud-textentry
+
+대시보드에서 위 항목 add
+BoB-shakes-tagcloud-textentry
+BoB-shake-bar-playname
+```
+
+## beats 설치
+```
+sudo apt install nginx -y
+/var/log/nginx/access.log 로그 쌓이는 곳, 이걸 elk 에 밀어 넣을 예정
+
+wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.5.2-amd64.deb
+sudo dpkg -i filebeat-7.5.2-amd64.deb
+sudo vi /etc/filebeat/filebeat.yml 설정파일 위치 
+
+원래 일반적인 구조
+beats -> logstash -> elasticsearch -> kibana
+지금 하는 설정
+beats -> elasticsearch -> kibana
+
+수정
+<<INPUT>>
+-type : log
+ enabled : true
+ paths : /var/log/nginx/*.log
+<<OUPUT>>
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["localhost:9200"]
+  # Optional protocol and basic auth credentials.
+  protocol: "http"
+  username: "elastic"
+  password: "비번"
+  
+( sudo filebeat setup ) - 이걸 통해서 각종 설정들을 알아서 kibana에다가 만들어줌 근데 지금은 안함 -> Management -> Index patterns 자동 생성
+sudo systemctl start filebeat 파일비트 서비스 구동
+sudo filebeat modules list 파일비트가 지원하는 다양한 로그 규격들 목록 확인
+( sudo filebeat modules enable nginx )   nginx활성화하는건데 해도 되고 안해도됨 . 위에서 수동으로 INPUT부분에서 nginx로그를 넣었음. 이거는 자동화해주는 느낌
+
+kibana dev tools 에서 GET _cat/indices?v 로 있나 확인
+tail -f /var/log/nginx/access.log
+```
+
+## kibana Management -> Index patterns
+```
+filebeat-* -> @timestamp 설정
+```
+## kibana discover
+```
+filebeat change
+
+파일비트 : 로그파일보내주는걸 잘하는 애
+
+로그스태시 : 전처리가 가능한 것
+
+일레스틱서치 : 들어간 데이터를 잘, 빠르게 검색해줌
+
+현재 로그 포맷(키/밸류 확인)
+@timestamp:Aug 9, 2020 @ 18:48:19.892 message:14.42.3.83 - - [09/Aug/2020:18:32:59 +0900] "GET / HTTP/1.1" 200 396 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" input.type:log host.os.version:16.04.6 LTS (Xenial Xerus) host.os.family:debian host.os.name:Ubuntu host.os.kernel:4.15.0-1080-gcp host.os.codename:xenial host.os.platform:ubuntu host.id:8d96388dc6509d0d14131a56805959b8 host.name:elk1 host.containerized:false host.hostname:elk1
+
+메세지필드가 가장 중요한 nginx이 로그인데, 파싱을 전혀 못했음
+그래서 결론적으로 로그파싱을 못하니까 logstash를 거쳐야함
+
+elastic으로 바로 넣어줬는데 파싱이 제대로 안짤려넣어서 logstash통해서 짤라서 파싱해주는것
+```
+
+## logstash 실행
+```
+sudo systemctl start logstash
+설정파일
+sudo vi /etc/logstash/logstash.yml
+
+grok : 정규표현식같은것
+dev tools grok debugger로
+샘플데이터에
+218.237.230.97 - - [09/Aug/2020:18:35:00 +0900] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36"
+그록패턴에
+%{IPORHOST:[nginx][access][remote_ip]} - %{DATA:[nginx][access][user_name]} \[%{HTTPDATE:[nginx][access][time]}\] \"%{WORD:[nginx][access][method]} %{DATA:[nginx][access][url]} HTTP/%{NUMBER:[nginx][access][http_version]}\" %{NUMBER:[nginx][access][response_code]} %{NUMBER:[nginx][access][body_sent][bytes]} \"%{DATA:[nginx][access][referrer]}\" \"%{DATA:[nginx][access][agent]}\"
+
+
+sudo vi /etc/logstash/conf.d/nginx.conf
+
+input {
+  beats {
+    port => 5044
+  }
+}
+filter {
+    grok {
+      match => { "message" => ["%{IPORHOST:[nginx][access][remote_ip]} - %{DATA:[nginx][access][user_name]} \[%{HTT
+PDATE:[nginx][access][time]}\] \"%{WORD:[nginx][access][method]} %{DATA:[nginx][access][url]} HTTP/%{NUMBER:[nginx]
+[access][http_version]}\" %{NUMBER:[nginx][access][response_code]} %{NUMBER:[nginx][access][body_sent][bytes]} \"%{
+DATA:[nginx][access][referrer]}\" \"%{DATA:[nginx][access][agent]}\"] }
+       # remove_field => "message"
+    }
+}
+output {
+  elasticsearch {
+    hosts => "localhost:9200"
+    index => "logstash-20200809"
+    user => "elastic"
+    password => "비번"
+  }
+} 
+
+sudo systemctl restart logstash.service
+
+
+sudo vi /etc/filebeat/filebeat.yml      아웃풋을 일레스틱서치에서 로그스태쉬로 변경
+
+#output.elasticsearch:
+  # Array of hosts to connect to.
+  #hosts: ["localhost:9200"]
+  # Optional protocol and basic auth credentials.
+  #protocol: "http"
+  #username: "elastic"
+  #password: "비번"
+#----------------------------- Logstash output --------------------------------
+output.logstash:
+  # The Logstash hosts
+  hosts: ["localhost:5044"]
+
+sudo systemctl restart filebeat.service
+  
+ 홈페이지 왔다갔다 하기
+  GET _cat/indices?v 로 확인 logstash있는지
+
+  키바나 인덱스패턴에 logstash- 추가
+```
+
+## 동작순서
+1. 웹페이지에 접속한다
+2. nginx가 access.log를 만든다
+3. filebeat가 access.log 파일에 변화를 감지한다
+4. filebeat가 access.log 파일을 읽어서 그 변화된 로그 양을 logstash로 보낸다
+5. logstash가 그 내용을 (socket 5044)읽어서, 파싱을한다.
+6. logstash가 그 내용을 다시 output으로 보낸다 (근데 그 output이 elasticsearch임)
+7. elasticsearch가 그 내용을 받아서, 인덱싱 한다.
+8. 그 내용을 elasticsearch를 통해서 조회를 한다.
