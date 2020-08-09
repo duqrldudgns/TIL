@@ -139,3 +139,295 @@ curl -XGET -uelastic:'일라스틱 비번' localhost:9200
 visualize에서 만든데이터를
 dashboard에서 add 해서 볼 수 있음
 ```
+
+---
+> 이어서
+
+## 비밀번호 찾기
+```
+비밀번호 파일
+/etc/kibana/kibana.yml
+
+비밀번호 재설정
+/usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
+```
+## 재시작
+```
+systemctl status elasticsearch
+systemctl status kibana
+sudo systemctl start elasticsearch
+sudo systemctl start kibana
+
+내부에서 curl로 서비스 먼저 확인
+curl -XGET -uelastic:'일라스틱 비번' localhost:9200
+curl -XGET -uelastic:'일라스틱 비번' localhost:9200/_cat/
+curl -XGET -uelastic:'일라스틱 비번' localhost:9200/_cat/health
+curl -XGET -uelastic:'일라스틱 비번' localhost:9200/_cat/nodes
+curl -XGET -uelastic:'일라스틱 비번' localhost:9200/_cat/indices?v
+
+```
+
+## kibana (dev tools)
+```
+키바나 창을 띄워서, 콘솔에서 치고 있지만 실제로 명령어가 구동되는 곳은 elasticsearch의 결과가 보여지는 중
+지금 하고 있는 것은 커맨드라인에서 curl로 하는 것과 동일
+좌측 dev Tools
+문장이 포함된 부분에서 실행을 해야함
+실행단축키 : ctrl + Enter
+
+PUT은 밀어넣는 것
+PUT /customer 실행  -  새로운 index를 만듦
+
+GET은 가져오는 것
+GET _cat/indices?v 실행
+green은 안전하게 데이터 생성
+yellow는 안전하지 않음(노드가 1개뿐이라서, 이 노드가 죽으면 데이터가 유실됨)
+
+생성
+PUT /customer/type1/1
+{
+  "name": "abcd"
+}
+
+조회
+GET customer/type1/1  
+
+삭제 (후 다시 원상복귀)
+DELETE customer
+
+업데이트 (기존 데이터 유지, 새로운 필드 추가)
+POST customer/type1/1/_update
+{
+  "doc": {
+    "age": 99
+  }
+}
+
+업데이트 (기존 데이터(name과 age)삭제 후 처음부터 새롭게 추가)
+POST customer/type1/1
+{
+  "name": "zzzz"
+}
+
+```
+
+## 연습문제
+```
+PUT /customer/type1/1
+{
+  "name": "John",
+  "age": 23,
+  "bday": "2020-01-01",
+  "phone": "1111"
+}
+PUT /customer/type1/2
+{
+  "name": "Sam",
+  "age": 25,
+  "bday": "1998-02-10",
+  "phone": "2222"
+}
+PUT /customer/type1/3
+{
+  "name": "Tom",
+  "age": 19,
+  "bday": "2004-03-20",
+  "phone": "3333"
+}
+PUT /customer/type1/4
+{
+  "name": "Julie",
+  "age": 22,
+  "bday": "2001-04-15",
+  "phone": "4444"
+}
+PUT /customer/type1/5
+{
+  "name": "Jenny",
+  "age": 17,
+  "bday": "2006-05-30",
+  "phone": "5555"
+}
+
+GET customer/type1/1
+GET customer/type1/2
+GET customer/type1/3
+GET customer/type1/4
+GET customer/type1/5
+
+GET customer/_mapping
+
+GET /customer/_search?q=*
+
+GET /customer/_search?q=*&sort=age:asc - 나이순정렬
+
+# Query DSL
+POST /customer/_search
+{
+  "query": {"match_all": {}}
+}
+
+POST /customer/_search                 - 나이순정렬
+{
+  "query": {"match_all": {}},
+  "sort": [
+    {"age": "asc"}
+  ]
+}
+
+POST /customer/_search
+{
+  "query": {"match_all": {}},
+  "from": 2,
+  "size": 1
+}
+
+# null
+POST /customer/_search
+{
+  "query": {"match": {
+    "age": 20
+  }}
+}
+
+#not null
+POST /customer/_search
+{
+  "query": {"match": {
+    "age": 22
+  }}
+}
+
+#must = and
+POST /customer/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": {"name": "Julie"}},
+        { "match": {"age": 22}}
+      ]
+    }
+  }
+}
+
+```
+
+## RDBMS와의 차이
+```
+RDBMS
+스키마를 필수로 설정해야함
+키 이름과 필드 속성(INT, CHAR 등) 사전 정의 필요
+
+ELK
+그런거 필요 없음
+```
+
+## dev tools
+```
+벌크로 데이터 밀어넣기
+POST /product/type1/_bulk
+{"index":{"_id":1}}
+{"name:":"John"}
+{"index":{"_id":2}}
+{"name:":"Sam"}
+{"index":{"_id":3}}
+{"name:":"Tom"}
+
+
+GET /product/_search?q=*
+
+POST /product/type1/_bulk
+{"index":{"_id":1}}
+{"name":"John", "age":20}
+{"index":{"_id":2}}
+{"name":"Sam", "age":30}
+{"index":{"_id":3}}
+{"name":"Tom", "age":40}
+
+POST /product/type1/1/_update
+{
+  "script": {
+    "inline": "ctx._source.age++"
+  }
+}
+
+GET /product/_search?q=*
+
+
+
+반복해보기
+POST /product/type1/4/_update
+{
+  "script": {
+    "inline": "ctx._source.age++"
+  }
+}
+
+POST /product/type1/4/_update
+{
+  "script": {
+    "inline": "if(ctx._source.age >= 100) {ctx.op = 'delete' } else {ctx.op = 'none'}"
+  }
+}
+
+GET /product/type1/4
+
+
+```
+
+## 두번째 샘플 데이터 추가
+
+```
+GET /_cat/indices   #샘플데이터 추가된 것 확인
+
+GET kibana_sample_data_flights/_search?q=*  #기본 사이즈 10개
+GET kibana_sample_data_flights/_search?q=*&size=20&from=20 #20개건너뛰고 20개 출력
+GET kibana_sample_data_flights/_search?q=*&sort=AvgTicketPrice
+
+POST kibana_sample_data_flights/_search
+{
+  "query": {"match_all": {}},
+  "sort": {"AvgTicketPrice": "desc"}
+}
+
+POST kibana_sample_data_flights/_search
+{
+  "query": {"match":{"DestCountry": "AU"}},
+  "sort": {"AvgTicketPrice": "asc"},
+  "_source": ["AvgTicketPrice", "FlightNum", "OriginCountry", "DestCountry"]
+}
+```
+
+## 데이터 임포트
+
+```
+curl -O https://download.elastic.co/demos/kibana/gettingstarted/7.x/shakespeare.json  -  샘플데이터 가져오기
+wc shakespeare.json
+curl -uelastic:<pwd> -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
+
+
+dev tools 
+
+PUT /shakespeare
+{
+  "mappings": {
+    "properties": {
+    "speaker": {"type": "keyword"},
+    "play_name": {"type": "keyword"},
+    "line_id": {"type": "integer"},
+    "speech_number": {"type": "integer"}
+    }
+  }
+}
+```
+
+## kibana
+```
+elk 에서 검색 가능한 구조로 만들기
+management -> index patterns -> create index
+shakespeare -> next -> next
+
+왼쪽 메뉴discover
+change -> shakespeare -> search ( text_entry :"ACT I" )
+```
