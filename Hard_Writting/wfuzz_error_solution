@@ -1,6 +1,6 @@
 wfuzz 실행하기까지의 오류해결 절차 , 시행착오인데 정리를 못함.
 
-오피셜 ) 그냥 깔고 ./wfuzz가 아닌 wfuzz로 실행해보면 오류없이 된다고 . 다시 깔아서 할 때 해보자
+오피셜 ) 그냥 깔고 ./wfuzz가 아닌 wfuzz로 실행해보면 오류없이 된다고 한다. 다시 깔아서 할 때 해보자 (파일 내, 파일 )
 
     1  sudo apt-get update
     2  sudo apt-get upgrade
