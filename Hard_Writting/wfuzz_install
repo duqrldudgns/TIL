@@ -1,0 +1,192 @@
+wfuzz 실행하기까지의 오류해결 절차 , 시행착오인데 정리를 못함.
+
+    1  sudo apt-get update
+    2  sudo apt-get upgrade
+    3  ls
+    4  exit
+    5  pip install --upgrade pip
+    6  pip install wfuzz
+    7  ls
+    8  mkdir git
+    9  cd girt
+   10  cd git
+   11  git clone git://github.com/xmendez/wfuzz.git
+   12  ls
+   13  cd wfuzz/
+   14  ls
+   15  python setup.py install
+   16  ls
+   17  cd src
+   18  ls
+   19  cd wfuzz/
+   20  ls
+   21  cd ..
+   22  ls
+   23  python ./src/wfuzz-cli.py 
+   24  python3 ./src/wfuzz-cli.py 
+   25  pip install pycurl
+   26  pip install wfuzz
+   27  python --version
+   28  python3 --version
+   29  wfuzz
+   30  ls
+   31  ./wfuzz
+   32  #!/bin/sh
+   33  python src/wfuzz-cli.py "$@"
+   34  brew install openssl
+   35  apt install linuxbrew-wrapper
+   36  brew install openssl
+   37  sudo -s
+   38  quit
+   39  ls
+   40  exit
+   41  ls
+   42  cd Desktop/
+   43  ls
+   44  gedit 
+   45  gedit fiddler_use
+   46  apt-cache depends python-pycurl
+   47  sudo apt-get install libcurl4-gnutls-dev
+   48  pip install pycurl
+   49  apt-cache search gnutl | grep dev
+   50  sudo apt-get install libgnutls-dev
+   51  pip install pycurl
+   52  ./wfuzz
+   53  pip install wfuzz
+   54  ./wfuzz
+   55  sudo apt install mono-complete
+   56  ls
+   57  cd ~/Downloads/
+   58  ls
+   59  unzip fiddler-linux.zip 
+   60  ls
+   61  mk fiddler
+   62  mkdir fiddler
+   63  mv * fiddler
+   64  ls
+   65  cd fiddler/
+   66  ls
+   67  mv fiddler-linux.zip ../
+   68  ls
+   69  cd ..
+   70  l
+   71  ls
+   72  mono Fiddler.exe
+   73  cd fiddler/
+   74  mono Fiddler.exe
+   75  mono Fiddler.exe&
+   76  ls
+   77  cd ..
+   78  ls
+   79  rm -rf *
+   80  ls
+   81  sqlmap
+   82  sudo apt install sqlmap
+   83  sqlmap
+   84  python sqlmap
+   85  python3 sqlmap
+   86  sqlmap
+   87  sqlmap -v
+   88  sqlmap -v 3
+   89  sudo apt-get install git
+   90  pip install wfuzz
+   91  python
+   92  sudo apt install python-pip
+   93  ls
+   94  pip install wfuzz
+   95  ls
+   96  sudo -s
+   97  ls
+   98  brew install openssl
+   99  sudo apt-get install build-essential
+  100  sudo apt autoremove 
+  101  brew install curl-openssl
+  102  ls
+  103  cd git
+  104  ls
+  105  cd wfuzz/
+  106  ls
+  107  python3 ./src/wfuzz-cli.py 
+  108  cd ~
+  109  ls
+  110  mkdir ~/python-pycurl-openssl
+  111  cd ~/python-pycurl-openssl
+  112  sudo apt-get source python-pycurl
+  113  sudo apt install python3-pip
+  114  sudo apt install libcurl4-openssl-dev
+  115  sudo pip3 install --upgrade pycurl
+  116  sudo pip3 install --upgrade pip3
+  117  sudo pip install --upgrade pip
+  118  sudo pip3 install --upgrade wfuzz
+  119  ls
+  120  sudo pip install --upgrade pip
+  121  sudo apt-get source python-pycurl
+  122  software-properties-gtk
+  123  sudo apt-get source python-pycurl
+  124  software-properties-gtk
+  125  sudo apt-get build-dep python-pycurl
+  126  ls
+  127  sudo apt-get install libcurl4-openssl-dev
+  128  sudo dpkg-source -x pycurl_7.43.0.1-0.2.dsc
+  129  $ sudo apt install libcurl4-openssl-dev
+  130  sudo apt install libcurl4-openssl-dev
+  131  sudo pip3 install --upgrade wfuzz
+  132  cd ..
+  133  ls
+  134  cd git
+  135  ls
+  136  cd wfuzz/
+  137  ls
+  138  cd build/
+  139  ls
+  140  cd ..
+  141  cd dist/
+  142  ls
+  143  cd ..
+  144  ls
+  145  cd wfuzz.egg-info/
+  146  ls
+  147  cd ..
+  148  cd ~/git/
+  149  ls
+  150  cd wfuzz/
+  151  ls
+  152  cd ..
+  153  ls
+  154  cd python-pycurl-openssl/
+  155  ls
+  156  sudo apt-get ~/git/wfuzz python-pycurl
+  157  sudo apt-get source python-pycurl
+  158  ls
+  159  cd ~/gu
+  160  cd ~/git/
+  161  ls
+  162  cd wfuzz/
+  163  ls
+  164  sudo apt-get source python-pycurl
+  165  ls
+  166  python3 src/wfuzz-cli.py 
+  167  cd ~
+  168  ls
+  169  rm python-pycurl-openssl/
+  170  rm -rf python-pycurl-openssl/
+  171  ls
+  172  cd ~gi
+  173  ls
+  174  cd 
+  175  cd ~git
+  176  ls
+  177  cd ~/git/
+  178  ls
+  179  cd wfuzz/
+  180  ls
+  181  ./wfuzz
+  182  pip install pycurl
+  183  sudo pip install pycurl
+  184  sudo -s
+  185  cd git
+  186  ls
+  187  cd wfuzz/
+  188  ls
+  189  ./wfuzz
+  190  history
