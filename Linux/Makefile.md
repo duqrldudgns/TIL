@@ -89,7 +89,7 @@ clean:
 ## 참고
 * qt 기능 중 .pro 파일이 있는 디렉토리에서 qmake 명령어를 치게되면 자동으로 Makefile 생성
 
-qtchooser 폴더에 default.conf 파일을 생성한다.	
+qtchooser 폴더에 default.conf 파일을 생성한다.  
 qmake 실행파일이 있는 위치 및 관련 library 들이 있는 곳을 지정 해준다.
 ```
 $ sudo vim /usr/lib/x86_64-linux-gnu/qtchooser/default.conf
