@@ -12,7 +12,12 @@ monitor mode로 전환된 interface를 access하여 오동작을 일으켜 패�
 
 이를 위해서 monitor mode로 사용되어지는 interface를 unmanage하도록 해야 한다. 
   
-  
+ 
+```
+라즈베리파이
+sudo apt-get install network-manager
+```
+
 ```
 /etc/NetworkManager/NetworkManager.conf
 ```  
