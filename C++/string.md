@@ -88,7 +88,7 @@ str1.replace(5, 2, str2); //"abcdefghij"의 5번째 인자에서부터 2개를 s
 
 * index부터 들어온 문자열을 찾는 함수. 
   * 만약에 일치하는게 있다면, 일치하는 부분의 첫번째 순서(index)를 반환
-
+  * 일치하는게 없다면, std::string::npos 를 반환
 
 ## str.push_back(char)
 * string의 맨뒤에 문자 c를 더하는 함수
