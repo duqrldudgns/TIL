@@ -12,6 +12,7 @@
 * [Regular Expression](https://github.com/duqrldudgns/TIL/blob/master/Etc/Regular%20Expression.md)
 * [quick sort - 최악의 시간복잡도 개선](https://github.com/duqrldudgns/algorithm-Baekjoon-OJ/blob/master/2020_08/quick_sort.py)
 * [ps template](https://github.com/duqrldudgns/TIL/blob/master/Etc/problem_solving_template.md)
+* [Sorting Algoritm](https://github.com/duqrldudgns/TIL/blob/master/Etc/Sorting%20Algoritm.md)
 
 ## C++
 * [functions - Useful function collection](https://github.com/duqrldudgns/TIL/blob/master/C%2B%2B/functions.md)
