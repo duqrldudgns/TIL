@@ -1,20 +1,26 @@
+# 정렬 알고리즘
+
+
+---
+
 ## 시간 복잡도의 빠르기
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d4c21d91-6e43-4f57-908b-363dab1f7235/Untitled.png)
+### O(1) > O(logN) > O(N) > O(NlogN) > O(N^2) > O(2^N) > O(N!)
+
+
 
 ---
 
 ## 시간 & 공간 복잡도
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5508b575-7e19-42ff-b54a-3caf8aad0611/Untitled.png)
+![Untitled](https://media.vlpt.us/images/jaeyunn_15/post/ff10da68-72c8-465e-9da8-9260b26db9a9/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-03-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.32.57.png)
 
-※선택, 삽입 정렬의 공간복잡도는 O(n)
 
 ---
 
 ## 장단점
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1cab7416-8345-4e2b-b728-4c61fdc5b6c3/Untitled.png)
+![Untitled](https://media.vlpt.us/images/jaeyunn_15/post/d83b3d81-6c55-4996-a2eb-d2e635a98cb6/image.png)
 
 ---
 
@@ -183,6 +189,7 @@
 - 이처럼 구현을 위한 조건이 많이 붙음
 
 
+---
 
 [모든 정렬의 동작 과정과 속도 비교 가능한 사이트](https://www.toptal.com/developers/sorting-algorithms)
 
