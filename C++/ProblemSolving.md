@@ -675,8 +675,6 @@ for(auto &a : v) stream >> a;
 > int to string
 > 
 
----
-
 ### Vector<int> v(3, 5)
 
 > 3공간을 5로 초기화
@@ -839,7 +837,7 @@ max_element(v.begin(), v.end()) - v.begin(); // 가장 큰 인덱스
     
 	![Untitled](/C++/img/ProblemSolving/Untitled9.png)
     
-- bj - 2146번
+- boj - 2146번
 
 ### 재귀는 Bottom Up으로 생각하기
 
