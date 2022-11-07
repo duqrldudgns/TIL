@@ -833,11 +833,11 @@ max_element(v.begin(), v.end()) - v.begin(); // 가장 큰 인덱스
 - 개선방안
     - ❗모든 섬에서 동시에 BFS 돌리기 - O(N^2)
     
-![Untitled](/C++/img/ProblemSolving/Untitled8.png)
+	![Untitled](/C++/img/ProblemSolving/Untitled8.png)
     
     - 섬끼리 묶어서 BFS 한꺼번에 돌리기
     
-![Untitled](/C++/img/ProblemSolving/Untitled9.png)
+	![Untitled](/C++/img/ProblemSolving/Untitled9.png)
     
 - bj - 2146번
 
