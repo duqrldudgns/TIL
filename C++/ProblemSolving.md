@@ -675,6 +675,8 @@ for(auto &a : v) stream >> a;
 > int to string
 > 
 
+---
+
 ### Vector<int> v(3, 5)
 
 > 3공간을 5로 초기화
