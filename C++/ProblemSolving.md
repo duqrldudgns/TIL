@@ -4,7 +4,7 @@
 
 ### 시간복잡도
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled.png)
+![Untitled](/C++/img/ProblemSolving/Untitled.png)
 
 ### Template
 
