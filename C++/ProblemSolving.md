@@ -151,7 +151,7 @@ cout << st; //최종 답 도출되기 전, mid 값이 입력되는 점 주의
 
 ### 누적합
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%201.png)
+![Untitled](/C++/img/ProblemSolving/Untitled1.png)
 
 ### 다익스트라
 
@@ -210,7 +210,7 @@ void solve(){
     - h(N) : 현재 노드에서 목표노드로 가는 최단거리 추정치(현재에 있기 때문에 아직 탐색하지 못했지만 추측)
 - 여러 f(N) 값을 구해 가장 값이 작은 곳을 따라 탐색하는 작업 반복
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%202.png)
+![Untitled](/C++/img/ProblemSolving/Untitled2.png)
 
 - [https://ddae9.tistory.com/8](https://ddae9.tistory.com/8)
 - [https://hyeooona825.tistory.com/45](https://hyeooona825.tistory.com/45)
@@ -420,7 +420,7 @@ void merge(int x, int y){
     - 사이클 x
     - 간선의 가중치 합이 최소
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%203.png)
+![Untitled](/C++/img/ProblemSolving/Untitled3.png)
 
 - 유니온파인드로 구현
 
@@ -452,7 +452,7 @@ for(int i=0; i<E; i++){
 }
 ```
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%204.png)
+![Untitled](/C++/img/ProblemSolving/Untitled4.png)
 
 - 우선순위큐로 구현
 - 구현이 어려워 대체로 크루스칼 사용
@@ -493,9 +493,9 @@ while(!q.empty()){
 }   
 ```
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%205.png)
+![Untitled](/C++/img/ProblemSolving/Untitled5.png)
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%206.png)
+![Untitled](/C++/img/ProblemSolving/Untitled6.png)
 
 ### DP
 
@@ -807,7 +807,7 @@ max_element(v.begin(), v.end()) - v.begin(); // 가장 큰 인덱스
 - erase
     - 그 후 쓰레기값을 날려버림
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%207.png)
+![Untitled](/C++/img/ProblemSolving/Untitled7.png)
 
 ### auto func = [&](int a){};
 
@@ -833,11 +833,11 @@ max_element(v.begin(), v.end()) - v.begin(); // 가장 큰 인덱스
 - 개선방안
     - ❗모든 섬에서 동시에 BFS 돌리기 - O(N^2)
     
-    ![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%208.png)
+![Untitled](/C++/img/ProblemSolving/Untitled8.png)
     
     - 섬끼리 묶어서 BFS 한꺼번에 돌리기
     
-    ![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%209.png)
+![Untitled](/C++/img/ProblemSolving/Untitled9.png)
     
 - bj - 2146번
 
@@ -848,9 +848,9 @@ max_element(v.begin(), v.end()) - v.begin(); // 가장 큰 인덱스
 양을 적게 해봐서 되면 그걸 기준으로 재귀 짜보기
 > 
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%2010.png)
+![Untitled](/C++/img/ProblemSolving/Untitled10.png)
 
-![Untitled](Problem%20Solving%203c867d1199d045a1a0b82695c76ae65e/Untitled%2011.png)
+![Untitled](/C++/img/ProblemSolving/Untitled11.png)
 
 제일 작게 2를 기준으로 하면
 
