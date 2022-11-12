@@ -123,6 +123,7 @@
 
 - ❗**최악의 경우 O(N^2)의 시간 복잡도**
     - 기준 값(피벗)이 맨 앞 또는 뒤 일 경우
+    - [최악의 시간복잡도 개선 방안](https://github.com/duqrldudgns/algorithm-Baekjoon-OJ/blob/master/2020_08/quick_sort.py)
 - **불안정 정렬**
 
 ### 유용한 곳
